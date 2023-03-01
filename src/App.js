@@ -6,6 +6,7 @@ function App() {
   const [cards, setCards] = useState([]);
   const [title, setTitle] = useState('');
   const [formData, setFormData] = useState({});
+  const [numCards, setNumCards] = useState(5);
 
   useEffect(() => {
     fetch('http://127.0.0.1:5002/getall')
@@ -33,23 +34,39 @@ function App() {
       .catch(err => console.log(err.message))
   }
 
+  const handleAddCard = () => {
+    setNumCards(prevNumCards => prevNumCards + 1);
+  }
+
   return (
     <>
       <h1>Welcome to ECHO!</h1>
       <h2>Your decks</h2>
       <article>
-        {!cards
-          ? <h2>Loading...</h2>
-          : <section className="card-container">
-              {cards.map(card => (
-                <div key={card._id}>
-                  <h3>{card.title}</h3>
-                  {/* <p>{card.description}</p> */}
-                </div>
-              ))}
-            </section>
-        }
-      </article>
+  {!cards
+    ? <h2>Loading...</h2>
+    : <section className="card-container">
+        {cards.map(deck => (
+          <div key={deck._id}>
+            <h3>{deck.title}</h3>
+            <p>{deck.formData ? `${Object.keys(deck.formData).length/2} Cards` : 'No cards yet'}</p>
+            {deck.formData && Object.keys(deck.formData).map((key, index) => {
+              if (key.startsWith('front')) {
+                return (
+                  <div key={index}>
+                    <p>Front: {deck.formData[key]}</p>
+                    <p>Back: {deck.formData[`back${key.slice(5)}`]}</p>
+                  </div>
+                );
+              } else {
+                return null;
+              }
+            })}
+          </div>
+        ))}
+      </section>
+  }
+</article>
       <h2>Create a new deck</h2>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formTitle">
@@ -64,37 +81,42 @@ function App() {
           />
         </Form.Group>
 
-        {[1, 2, 3, 4, 5].map(num => (
-          <div key={num}>
-            <h3>Card {num}</h3>
-            <Form.Group className="mb-3" controlId={`formFront${num}`}>
+        {[...Array(numCards)].map((_, index) => (
+          <div key={index}>
+            <h3>Card {index + 1}</h3>
+            <Form.Group className="mb-3" controlId={`formFront${index}`}>
               <Form.Label>Front</Form.Label>
               <Form.Control 
-                name={`front${num}`}
+                name={`front${index}`}
                 type="front"
                 placeholder="Front"
-                value={formData[`front${num}`]}
+                value={formData[`front${index}`] || ''}
                 className="p-3 hover-effect" 
                 onChange={(e) => setFormData(prevFormData => ({ ...prevFormData, [e.target.name]: e.target.value }))} 
-                />
+              />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId={`formBack${num}`}>
+            <Form.Group className="mb-3" controlId={`formBack${index}`}>
               <Form.Label>Back</Form.Label>
-              <Form.Control name={`back${num}`}
+              <Form.Control 
+                name={`back${index}`}
                 type="back"
                 placeholder="Back"
-                value={formData[`back${num}`]}
+                value={formData[`back${index}`] || ''}
                 className="p-3 hover-effect"
                 onChange={(e) => setFormData(prevFormData => ({ ...prevFormData, [e.target.name]: e.target.value }))} 
                 />
-                </Form.Group>
-                </div>
-                ))}
-                    <Button variant="primary" type="submit">
+                 </Form.Group>
+</div>
+))}
+  <Button variant="success" className="mt-3" onClick={handleAddCard}>
+    Add Card
+  </Button>
+<Button variant="primary" type="submit" className="mt-3">
       Create Deck
     </Button>
   </Form>
+
 </>
 );
 }
