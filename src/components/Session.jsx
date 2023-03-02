@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
@@ -6,15 +5,15 @@ import { useParams } from 'react-router-dom';
 export default function Session() {
   const { deckId } = useParams(); // Get the deck id from the URL parameter
 
-  const [decks, setDecks] = useState("");
+  const [deck, setDeck] = useState(null);
   const [cardIndex, setCardIndex] = useState(0);
 
-  useEffect((deckId) => {
+  useEffect(() => {
     fetch(`http://127.0.0.1:5002/deck/${deckId}`)
       .then(res => res.json())
-      .then(data => setDecks(data))
+      .then(data => setDeck(data))
       .catch(err => console.log(err.message))
-  }, []);
+  }, [deckId]);
 
   const handleNextCard = () => {
     setCardIndex(prevIndex => prevIndex + 1);
@@ -23,11 +22,10 @@ export default function Session() {
   return (
     <>
     <h1>Session</h1>
-    {!decks
+    {!deck
         ? <h2>Loading...</h2>
         : <section>
-        {decks.map(deck => (
-            <div key={deck._id}>
+            <div>
                 <h2>{deck.title}</h2>
                     <div>
                         <p>Card {cardIndex + 1} of {Object.keys(deck.formData).length}</p>
@@ -36,7 +34,6 @@ export default function Session() {
                         <Button onClick={handleNextCard}> Next Card</Button>
                     </div>  
             </div>
-        ))}
         </section>
     }
     </>
