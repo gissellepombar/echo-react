@@ -7,20 +7,24 @@ export default function CreateDeck() {
     const [formData, setFormData] = useState({});
     const [numCards, setNumCards] = useState(5);
 
-    // make a post request to the API with the form data
-    fetch('http://127.0.0.1:5002/post', {
-        method: 'POST', 
-        headers: { 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    
+        // make a post request to the API with the form data
+        fetch('http://127.0.0.1:5002/post', {
+          method: 'POST', 
+          headers: { 
             'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ title, formData }),
-    })  
-        .then(res => res.json())
-        .then(() => {
+          },
+          body: JSON.stringify({ title, formData }),
+        })  
+          .then(res => res.json())
+          .then(() => {
             setTitle('');
             setFormData({});
-        })
-        .catch(err => console.log(err.message))
+          })
+          .catch(err => console.log(err.message))
+      }
 
     const handleAddCard = () => {
         setNumCards(prevNumCards => prevNumCards + 1);

@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
+import { Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 export default function Decks(){
     const [cards, setCards] = useState([]);
-    
+
     useEffect(() => {
         fetch('http://127.0.0.1:5002/getall')
           .then(res => res.json())
@@ -10,7 +12,21 @@ export default function Decks(){
           .catch(err => console.log(err.message))
       }, []);
 
+      const handleDelete = (deckId) => {
+        fetch(`http://127.0.0.1:5002/delete/${deckId}`, {
+          method: 'DELETE'
+        })
+          .then(res => res.json())
+          .then(data => {
+            console.log(data.message);
+            // Remove the deleted deck from the state
+            setCards(prevCards => prevCards.filter(deck => deck._id !== deckId));
+          })
+          .catch(err => console.log(err.message));
+      }
 
+    const navigate = useNavigate();
+    
     return(
         <>
         <h1>Welcome to ECHO!</h1>
@@ -35,6 +51,9 @@ export default function Decks(){
                 return null;
               }
             })}
+            <Button>List</Button>
+            <Button onClick={() => handleDelete(deck._id)}>Delete</Button>
+            <Button onClick={() => navigate(`/session/${deck._id}`)}>Start Session</Button>
           </div>
         ))}
       </section>
