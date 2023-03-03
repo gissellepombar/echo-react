@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
@@ -6,7 +7,9 @@ export default function CreateDeck() {
     const [title, setTitle] = useState('');
     const [formData, setFormData] = useState({});
     const [numCards, setNumCards] = useState(5);
-
+    
+    const navigate = useNavigate();
+    
     const handleSubmit = (e) => {
         e.preventDefault();
     
@@ -22,6 +25,7 @@ export default function CreateDeck() {
           .then(() => {
             setTitle('');
             setFormData({});
+            navigate('/');
           })
           .catch(err => console.log(err.message))
       }
@@ -29,7 +33,6 @@ export default function CreateDeck() {
     const handleAddCard = () => {
         setNumCards(prevNumCards => prevNumCards + 1);
     }
-
         return(
             <>
                     <h2>Create a new deck</h2>
@@ -77,10 +80,12 @@ export default function CreateDeck() {
                                 <Button variant="success" className="mt-3" onClick={handleAddCard}>
                                     Add Card
                                 </Button>
-                                <Button variant="primary" type="submit" className="mt-3">
+                                <Button variant="primary" type="submit" className="mt-3" >
                                     Create Deck
-                                    </Button>
+                                </Button>
                                 </Form>
             </> 
         )
 }
+
+// onClick={() => navigate(`/`)}
