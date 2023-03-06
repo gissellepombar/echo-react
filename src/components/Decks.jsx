@@ -59,6 +59,7 @@ export default function Decks() {
                 <Button onClick={() => navigate(`/session/${deck._id}`)}>Start Session</Button>
               </div>
             ))}
+                <Button onClick={() => navigate(`/create`)}>Add New Deck</Button>
           </section>
         }
       </article>

@@ -1,6 +1,12 @@
-.App {
-  text-align: center;
+.parent-container {
+  /* width: 93%; */
+  margin: 0 auto;
+  padding: 0; 
 }
+
+/* .App {
+  text-align: center;
+} */
 
 /* .App-logo {
   height: 40vmin;

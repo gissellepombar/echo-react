@@ -3,13 +3,13 @@ import { Button, Modal } from 'react-bootstrap';
 import { useParams, useNavigate } from 'react-router-dom';
 
 export default function Session() {
-  const { deckId } = useParams(); // Get the deck id from the URL parameter
+    const { deckId } = useParams(); // Get the deck id from the URL parameter
 
-  const [deck, setDeck] = useState(null);
-  const [cardIndex, setCardIndex] = useState(0);
-  const [showModal, setShowModal] = useState(false);
+    const [deck, setDeck] = useState(null);
+    const [cardIndex, setCardIndex] = useState(0);
+    const [showModal, setShowModal] = useState(false);
 
-  const navigate = useNavigate();
+    const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`http://127.0.0.1:5002/deck/${deckId}`)
@@ -17,6 +17,21 @@ export default function Session() {
       .then(data => setDeck(data))
       .catch(err => console.log(err.message))
   }, [deckId]);
+
+// useEffect(() => {
+//     fetch(`http://127.0.0.1:5002/deck/${deckId}`)
+//       .then(res => res.json())
+//       .then(data => {
+//         const sortedDeck = {
+//           ...data,
+//           formData: Object.entries(data.formData)
+//             .sort(([, frontA], [, frontB]) => frontB.ranking - frontA.ranking)
+//             .reduce((acc, [key, value]) => ({ ...acc, [key]: value }), {})
+//         };
+//         setDeck(sortedDeck);
+//       })
+//       .catch(err => console.log(err.message))
+//   }, [deckId]);
 
   const handleNextCard = () => {
     if (cardIndex === Object.keys(deck.formData).filter(key => key.startsWith('front')).length - 1) {
@@ -26,10 +41,10 @@ export default function Session() {
     }
   }
 
-  const handleRankingChange = (rank) => {
-    const updatedCard = {
-      ranking: rank
-    };
+    const handleRankingChange = (rank) => {
+        const updatedCard = {
+        ranking: rank
+        };
     fetch(`http://localhost:5002/deck/${deckId}/ranking/${cardIndex}`, {
         method: 'PATCH',
         headers: {
@@ -43,10 +58,10 @@ export default function Session() {
             .catch(err => console.log(err.message));
         };
 
-        const handleContinue = () => {
+    const handleContinue = () => {
             setShowModal(false);
             navigate('/')
-        }
+    }
 
   return (
     <>
