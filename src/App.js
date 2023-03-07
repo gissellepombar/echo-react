@@ -6,16 +6,18 @@ import Session from './components/Session';
 import Home from './pages/Home';
 import SignUp from './pages/SignUp';
 import Login from './pages/Login';
-import Navigator from './components/Navigator';
+import Navbar from './components/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
+import { AuthContextProvider } from './context/AuthContext';
 
 function App() {
     return(
         <>
+        <AuthContextProvider>
             <BrowserRouter>
                 <body>
-                    <Navigator/>
+                    <Navbar/>
                     <Routes>
                         <Route path='/home' element={<Home />} />
                         <Route path='/signup' element={<SignUp/>} />
@@ -28,6 +30,7 @@ function App() {
                     </Routes>
                 </body>
             </BrowserRouter>
+        </AuthContextProvider>
         </>
 );
 }
