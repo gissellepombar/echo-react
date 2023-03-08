@@ -1,20 +1,20 @@
 import { useState, useEffect } from 'react';
-import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 import DeckCard from './DeckCard';
 
 export default function Decks() {
   const [decks, setDecks] = useState([]);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:5002/getall')
+    fetch('http://127.0.0.1:5002/deck')
       .then(res => res.json())
       .then(data => setDecks(data))
       .catch(err => console.log(err.message))
   }, []);
 
   const handleDelete = (deckId) => {
-    fetch(`http://127.0.0.1:5002/delete/${deckId}`, {
+    fetch(`http://127.0.0.1:5002/deck/${deckId}`, {
       method: 'DELETE'
     })
       .then(res => res.json())
@@ -46,26 +46,3 @@ export default function Decks() {
     </>
   );
 }
-
-{/* <div key={deck._id}>
-<h3>{deck.title}</h3>
-{deck.formData && Object.keys(deck.formData).filter(key => key.startsWith('front')).length > 0
-  ? <p>{Object.keys(deck.formData).filter(key => key.startsWith('front')).length} Cards</p>
-  : <p>No cards yet</p>
-}
-{deck.formData && Object.keys(deck.formData).map((key, index) => {
-  if (key.startsWith('front')) {
-    return (
-      <div key={index}>
-        <p>Front: {deck.formData[key]}</p>
-        <p>Back: {deck.formData[`back${key.slice(5)}`]}</p>
-      </div>
-    );
-  } else {
-    return null;
-  }
-})}
-<Button>List</Button>
-<Button onClick={() => handleDelete(deck._id)}>Delete</Button>
-<Button onClick={() => navigate(`/session/${deck._id}`)}>Start Session</Button>
-</div> */}

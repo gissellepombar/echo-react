@@ -18,21 +18,6 @@ export default function Session() {
       .catch(err => console.log(err.message))
   }, [deckId]);
 
-// useEffect(() => {
-//     fetch(`http://127.0.0.1:5002/deck/${deckId}`)
-//       .then(res => res.json())
-//       .then(data => {
-//         const sortedDeck = {
-//           ...data,
-//           formData: Object.entries(data.formData)
-//             .sort(([, frontA], [, frontB]) => frontB.ranking - frontA.ranking)
-//             .reduce((acc, [key, value]) => ({ ...acc, [key]: value }), {})
-//         };
-//         setDeck(sortedDeck);
-//       })
-//       .catch(err => console.log(err.message))
-//   }, [deckId]);
-
   const handleNextCard = () => {
     if (cardIndex === Object.keys(deck.formData).filter(key => key.startsWith('front')).length - 1) {
       setShowModal(true);

@@ -22,8 +22,8 @@ export default function CreateDeck() {
         }
 
         // make a post request to the API with the form data
-        fetch('http://127.0.0.1:5002/post', {
-        //fetch('https://echo-api-gp.web.app/post', {
+        fetch('http://127.0.0.1:5002/deck', {
+        //fetch('https://echo-api-gp.web.app/deck', {
         method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
