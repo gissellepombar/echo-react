@@ -18,7 +18,7 @@ export default function CreateDeck() {
         for (let i = 0; i < numCards; i++) {
             defaultCardData[`front${i}`] = '';
             defaultCardData[`back${i}`] = '';
-            defaultCardData[`rating${i}`] = 0; // default rating
+            defaultCardData[`rating${i}`] = 0;
         }
 
         // make a post request to the API with the form data
@@ -32,8 +32,6 @@ export default function CreateDeck() {
         })
             .then(res => res.json())
             .then(() => {
-                setTitle('');
-                setFormData({});
                 navigate('/');
             })
             .catch(err => console.log(err.message))
@@ -86,7 +84,7 @@ export default function CreateDeck() {
                             />
                         </Form.Group>
 
-                        {/* Add a hidden input field for rating */}
+                        {/* Hidden input field for rating */}
                         <Form.Control
                             name={`rating${index}`}
                             type="hidden"

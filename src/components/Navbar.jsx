@@ -1,19 +1,22 @@
 import Nav from 'react-bootstrap/Nav';
 import { useAuth } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 export default function Navbar(){
   const { user, logOut } = useAuth();
 
+  const navigate = useNavigate();
+
   const handleSignOut = async () => {
     try {
       await logOut();
+      navigate('/home')
     } catch (error) {
       console.log(error);
     }
   };
 
   return (
-    <>
       <Nav className="justify-content-end" activeKey="/home">
         <Nav.Item>
           <Nav.Link href="/">Home</Nav.Link>
@@ -25,9 +28,8 @@ export default function Navbar(){
           <Nav.Link eventKey="disabled" disabled>Browse</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link onClick={handleSignOut}>{!user ? "Sign Out" : "Sign In"}</Nav.Link>
+          <Nav.Link onClick={handleSignOut}>{!user ? "Sign In" : "Sign Out"}</Nav.Link>
         </Nav.Item>
       </Nav>
-    </>
   )
 }

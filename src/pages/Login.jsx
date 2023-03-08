@@ -71,7 +71,7 @@ export default function Login({setUser, setIsUser}) {
         <section>
         <h1>Log in</h1>
         <p>
-        Already have an account yet? <Link to='/signup' className='underline'>Sign in.</Link>
+        Already have an account? <Link to='/signup' className='underline'>Sign in.</Link>
         </p>
 
         <form onSubmit={handleSubmit}>
