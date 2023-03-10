@@ -2,6 +2,10 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import '../styles/create.css'
+import Card from 'react-bootstrap/Card';
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 export default function CreateDeck() {
     const [title, setTitle] = useState('');
@@ -38,12 +42,17 @@ export default function CreateDeck() {
     }
 
     const handleAddCard = () => {
-        setNumCards(prevNumCards => prevNumCards + 1);
+        setNumCards(numCards => numCards + 1);
     }
 
     return (
-        <>
+        <div className='create-page-background'>
             <h2>Create a new deck</h2>
+            {/* <Row className="justify-content-center">
+              <Col xs={9} md={9} lg={9}>
+            <Card> */}
+            <Row  className="justify-content-center">
+              <Col xs={7} md={7} lg={7}>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formTitle">
                     <Form.Label>Title</Form.Label>
@@ -59,6 +68,7 @@ export default function CreateDeck() {
 
                 {[...Array(numCards)].map((_, index) => (
                     <div key={index}>
+                        <Card className='form-card'>
                         <h3>Card {index + 1}</h3>
                         <Form.Group className="mb-3" controlId={`formFront${index}`}>
                             <Form.Label>Front</Form.Label>
@@ -68,7 +78,7 @@ export default function CreateDeck() {
                                 placeholder="Front"
                                 value={formData[`front${index}`] || ''}
                                 className="p-3 hover-effect"
-                                onChange={(e) => setFormData(prevFormData => ({ ...prevFormData, [e.target.name]: e.target.value }))}
+                                onChange={(e) => setFormData(formData => ({ ...formData, [e.target.name]: e.target.value }))}
                             />
                         </Form.Group>
 
@@ -80,7 +90,7 @@ export default function CreateDeck() {
                                 placeholder="Back"
                                 value={formData[`back${index}`] || ''}
                                 className="p-3 hover-effect"
-                                onChange={(e) => setFormData(prevFormData => ({ ...prevFormData, [e.target.name]: e.target.value }))}
+                                onChange={(e) => setFormData(formData => ({ ...formData, [e.target.name]: e.target.value }))}
                             />
                         </Form.Group>
 
@@ -90,6 +100,7 @@ export default function CreateDeck() {
                             type="hidden"
                             value={0} // default rating
                         />
+                        </Card>
                     </div>
                 ))}
         <Button variant="success" className="mt-3" onClick={handleAddCard}>
@@ -99,6 +110,12 @@ export default function CreateDeck() {
           Create Deck
         </Button>
       </Form>
-    </> 
+      </Col>
+          </Row>
+      {/* </Card>
+
+          </Col>
+          </Row> */}
+    </div> 
   )
 }

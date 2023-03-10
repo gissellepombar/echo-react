@@ -1,0 +1,27 @@
+.main-page-background {
+    background-image: url("../assets/images/background.webp");
+    /* background-image: url("../assets/images/home.webp"); */
+    background-size: cover;
+    height: 100vh;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+.deck-card {
+    --bs-card-border-width: 0!important;
+    border-radius: 15px!important;
+background: #FFFFFF;
+box-shadow:  -23px -23px 46px #d6d6d6,
+             23px 23px 46px #ffffff;
+
+}
+
+.list {
+    --bs-btn-border-width: 0!important;
+    border-radius: 15px!important;
+background: #FFFFFF;
+box-shadow: inset -23px -23px 46px #d6d6d6,
+            inset 23px 23px 46px #ffffff;
+
+}

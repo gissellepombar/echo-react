@@ -33,11 +33,11 @@ export default function SignUp() {
     }
   }
 
-//   useEffect(() => {
-//     if(user != null) {
-//         navigate('/')
-//     }
-// }, [user])
+  useEffect(() => {
+    if(user != null) {
+        navigate('/')
+    }
+}, [user])
 
   return(
     <section>

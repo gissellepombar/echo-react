@@ -1,7 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 import DeckCard from './DeckCard';
+import '../styles/main.css'
 
 export default function Decks() {
   const [decks, setDecks] = useState([]);
@@ -29,20 +33,28 @@ export default function Decks() {
   const navigate = useNavigate();
 
   return (
-    <>
+    <div className='main-page-background'>
       <h1>Welcome to ECHO!</h1>
       <h2>Your decks</h2>
       <article>
-        {!decks
+      {!decks
           ? <h2>Loading...</h2>
-          : <section className="card-container">
+          : <Row xs={1} sm={2} md={3} lg={4} className="g-4">
             {decks.map(deck => (
-                <DeckCard key={deck.id} deck={deck} handleDelete={handleDelete} navigate={navigate}/>
+              <Col key={deck.id}>
+                <DeckCard deck={deck} handleDelete={handleDelete} navigate={navigate}/>
+              </Col>
             ))}
-                <Button onClick={() => navigate(`/create`)}>Add New Deck</Button>
-          </section>
+            <Col>
+              <Card className="text-center">
+                <Card.Body>
+                  <Button onClick={() => navigate(`/create`)}>Add New Deck</Button>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
         }
       </article>
-    </>
+    </div>
   );
 }

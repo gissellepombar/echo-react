@@ -1,0 +1,8 @@
+.welcome-page-background {
+    background-image: url("../assets/images/home.webp");
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}

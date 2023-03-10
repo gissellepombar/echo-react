@@ -1,0 +1,14 @@
+.create-page-background {
+    background-color: #D3E2F8;
+    /* background-image: url("../assets/images/home.webp"); */
+    /* background-size: cover; */
+    height: 100%;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+.form-card {
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
