@@ -12,8 +12,9 @@
     --bs-card-border-width: 0!important;
     border-radius: 15px!important;
 background: #FFFFFF;
-box-shadow:  -23px -23px 46px #d6d6d6,
-             23px 23px 46px #ffffff;
+box-shadow: 10px 10px 23px 0px rgba(185,190,199,0.75);
+/* box-shadow:  -23px -23px 46px #d6d6d6,
+             23px 23px 46px #ffffff; */
 
 }
 

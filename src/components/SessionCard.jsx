@@ -64,21 +64,18 @@ export default function SessionCard() {
   };
 
   return (
-    <>
+    <div className='session-page-background'>
       <h1>Session</h1>
       <Row className="justify-content-center">
         <Col xs={8} md={8} lg={6} className='card-column'>
-          <Card className="text-center flip-card">
-          <div className="my-card-content">
+          <section className="text-center flip-card">
             {!deck ? (
               <Card.Title>Loading...</Card.Title>
             ) : (
-              <section
-                className={
-                  flipped ? "flip-card-inner flipped" : "flip-card-inner"
-                }
-                onClick={handleCardClick}
-              >
+                // <Card.Body className="card-container">
+              <Card
+                className={ flipped ? "flip-card-inner flipped" : "flip-card-inner"} 
+                onClick={handleCardClick}>
                 <div
                   className="flip-card-front"
                   style={{ display: flipped ? "none" : "block" }}
@@ -96,14 +93,20 @@ export default function SessionCard() {
                     <Card.Text>
                       Front: {deck.formData[`front${cardIndex}`]}
                     </Card.Text>
-                  </div>
-                  <div>
+                    <div className="btn-container">
                     <Button onClick={handleNextCard}>Next Card</Button>
-                    <Button onClick={() => handleNextCard()}>Easy: 1</Button>
-                    <Button onClick={() => handleNextCard()}>Medium: 2</Button>
-                    <Button onClick={() => handleNextCard()}>Hard: 3</Button>
+                    <Button onClick={() => handleRankingChange()}>Easy: 1</Button>
+                    <Button onClick={() => handleRankingChange()}>Medium: 2</Button>
+                    <Button onClick={() => handleRankingChange()}>Hard: 3</Button>
+                  </div>
                   </div>
                 </div>
+                  {/* <div>
+                    <Button onClick={handleNextCard}>Next Card</Button>
+                    <Button onClick={() => handleRankingChange()}>Easy: 1</Button>
+                    <Button onClick={() => handleRankingChange()}>Medium: 2</Button>
+                    <Button onClick={() => handleRankingChange()}>Hard: 3</Button>
+                  </div> */}
                 <div
                   className="flip-card-back"
                   style={{ display: flipped ? "block" : "none" }}
@@ -121,18 +124,18 @@ export default function SessionCard() {
                     <Card.Text>
                       Back: {deck.formData[`back${cardIndex}`]}
                     </Card.Text>
-                  </div>
-                  <div>
+                  <div className="btn-container">
                     <Button onClick={handleNextCard}>Next Card</Button>
-                    <Button onClick={() => handleNextCard()}>Easy: 1</Button>
-                    <Button onClick={() => handleNextCard()}>Medium: 2</Button>
-                    <Button onClick={() => handleNextCard()}>Hard: 3</Button>
+                    <Button onClick={() => handleRankingChange()}>Easy: 1</Button>
+                    <Button onClick={() => handleRankingChange()}>Medium: 2</Button>
+                    <Button onClick={() => handleRankingChange()}>Hard: 3</Button>
+                  </div>
                   </div>
                 </div>
-              </section>
+              </Card>
+            //   </Card.Body>
             )}
-</div>
-          </Card>
+          </section>
         </Col>
       </Row>
       <Modal show={showModal} onHide={() => setShowModal(false)}>
@@ -144,6 +147,6 @@ export default function SessionCard() {
           <Button onClick={handleContinue}>Continue</Button>
         </Modal.Footer>
       </Modal>
-    </>
+    </div>
   );
 }
