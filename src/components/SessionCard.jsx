@@ -130,10 +130,9 @@ export default function SessionCard() {
                     </Card.Text>
                   <div className="btn-container">
                     {/* <Button onClick={handleNextCard}>Next Card</Button> */}
-                    <Button className="rating-btn" onClick={() => handleRankingChange()}>Easy: 1</Button>
-                    <Button className="rating-btn" onClick={() => handleRankingChange()}>Medium: 2</Button>
-                    <Button className="rating-btn" onClick={() => handleRankingChange()}>Hard: 3</Button>
-                  </div>
+                    <Button className="rating-btn" onClick={() => handleRankingChange()}><EmojiLaughingFill color="#8069BB" size={15} /></Button>
+                    <Button className="rating-btn" onClick={() => handleRankingChange()}><EmojiNeutralFill color="#8069BB" size={15} /></Button>
+                    <Button className="rating-btn" onClick={() => handleRankingChange()}><EmojiFrownFill color="#8069BB" size={15} /></Button>
                   </div>
                 </div>
               </Card>
