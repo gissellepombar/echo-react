@@ -1,8 +1,68 @@
-.welcome-page-background {
+/* .welcome-page-background {
     background-image: url("../assets/images/home.webp");
     background-size: cover;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
+} */
+/* 
+.welcome-page-background {
+    background-image: url("../assets/images/home.webp");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+} */
+
+/* .welcome-page-background {
+    background-image: url("../assets/images/home.webp");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .col-md-6 {
+    height: 100vh;
+  }
+  
+  @media (max-width: 767px) {
+    .col-md-6 {
+      height: auto;
+    }
+  } */
+
+  .welcome-page-background {
+    background-image: url("../assets/images/home.webp");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .col-md-6 {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .col-md-6 > div > h2 {
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+  }
+.button-welcome {
+    --bs-btn-bg: #4354FF!important;
 }
+  
+  @media (max-width: 767px) {
+    .col-md-6 {
+      height: auto;
+    }
+  }

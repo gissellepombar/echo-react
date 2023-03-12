@@ -1,0 +1,55 @@
+.login-page-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .login-page-background {
+    background-image: url("../assets/images/login3.webp");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    flex: 1;
+  }
+  
+  .login-page-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    padding: 50px;
+    align-self: flex-start;
+    text-align: center;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    padding: 50px;
+    text-align: center; */
+  }
+  
+  @media screen and (min-width: 768px) {
+    .login-page-wrapper {
+      flex-direction: row;
+    }
+  
+    .login-page-background {
+      flex-basis: 50%;
+    }
+  
+    .login-page-content {
+      flex-basis: 50%;
+      text-align: center;
+    }
+  }
+
+  .button-login {
+    --bs-btn-bg: #4354FF!important;
+    margin: 1rem;
+}
+
+.p-login {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}

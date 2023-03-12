@@ -34,12 +34,12 @@ export default function Decks() {
 
   return (
     <div className='main-page-background'>
-      <h1>Welcome to ECHO!</h1>
-      <h2>Your decks</h2>
+            <div className="dashboard-content-wrapper">
+      {/* <h2>Your decks</h2> */}
       <article>
       {!decks
           ? <h2>Loading...</h2>
-          : <Row xs={1} sm={2} md={3} lg={4} className="g-4">
+          : <Row xs={1} sm={2} md={3} lg={3} className="g-4">
             {decks.map(deck => (
               <Col key={deck.id}>
                 <DeckCard deck={deck} handleDelete={handleDelete} navigate={navigate}/>
@@ -55,6 +55,7 @@ export default function Decks() {
           </Row>
         }
       </article>
+    </div>
     </div>
   );
 }

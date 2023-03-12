@@ -5,6 +5,10 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Modal from "react-bootstrap/Modal";
+import { EmojiLaughingFill } from 'react-bootstrap-icons';
+import { EmojiNeutralFill } from 'react-bootstrap-icons';
+import { EmojiFrownFill } from 'react-bootstrap-icons';
+
 
 export default function SessionCard() {
   const { deckId } = useParams(); // Get the deck id from the URL parameter
@@ -94,10 +98,10 @@ export default function SessionCard() {
                       Front: {deck.formData[`front${cardIndex}`]}
                     </Card.Text>
                     <div className="btn-container">
-                    <Button onClick={handleNextCard}>Next Card</Button>
-                    <Button onClick={() => handleRankingChange()}>Easy: 1</Button>
-                    <Button onClick={() => handleRankingChange()}>Medium: 2</Button>
-                    <Button onClick={() => handleRankingChange()}>Hard: 3</Button>
+                    {/* <Button onClick={handleNextCard}>Next Card</Button> */}
+                    <Button className="rating-btn" onClick={() => handleRankingChange()}><EmojiLaughingFill color="#8069BB" size={15} /></Button>
+                    <Button className="rating-btn" onClick={() => handleRankingChange()}><EmojiNeutralFill color="#8069BB" size={15} /></Button>
+                    <Button className="rating-btn" onClick={() => handleRankingChange()}><EmojiFrownFill color="#8069BB" size={15} /></Button>
                   </div>
                   </div>
                 </div>
@@ -125,10 +129,10 @@ export default function SessionCard() {
                       Back: {deck.formData[`back${cardIndex}`]}
                     </Card.Text>
                   <div className="btn-container">
-                    <Button onClick={handleNextCard}>Next Card</Button>
-                    <Button onClick={() => handleRankingChange()}>Easy: 1</Button>
-                    <Button onClick={() => handleRankingChange()}>Medium: 2</Button>
-                    <Button onClick={() => handleRankingChange()}>Hard: 3</Button>
+                    {/* <Button onClick={handleNextCard}>Next Card</Button> */}
+                    <Button className="rating-btn" onClick={() => handleRankingChange()}>Easy: 1</Button>
+                    <Button className="rating-btn" onClick={() => handleRankingChange()}>Medium: 2</Button>
+                    <Button className="rating-btn" onClick={() => handleRankingChange()}>Hard: 3</Button>
                   </div>
                   </div>
                 </div>

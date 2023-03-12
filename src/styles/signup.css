@@ -1,0 +1,55 @@
+.signup-page-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .signup-page-background {
+    background-image: url("../assets/images/signup.webp");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    flex: 1;
+  }
+  
+  .signup-page-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    padding: 50px;
+    align-self: flex-start;
+    text-align: center;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    padding: 50px;
+    text-align: center; */
+  }
+  
+  @media screen and (min-width: 768px) {
+    .signup-page-wrapper {
+      flex-direction: row;
+    }
+  
+    .signup-page-background {
+      flex-basis: 50%;
+    }
+  
+    .signup-page-content {
+      flex-basis: 50%;
+      text-align: center;
+    }
+  }
+
+  .button-signup {
+    --bs-btn-bg: #4354FF!important;
+    margin: 1rem;
+}
+
+.p-signup {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
