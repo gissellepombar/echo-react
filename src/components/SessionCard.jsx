@@ -21,7 +21,8 @@ export default function SessionCard() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:5002/deck/${deckId}`)
+    //fetch(`http://127.0.0.1:5002/deck/${deckId}`)
+    fetch(`https://echo-api-gp.web.app/deck/${deckId}`)
       .then((res) => res.json())
       .then((data) => setDeck(data))
       .catch((err) => console.log(err.message));
@@ -45,7 +46,8 @@ export default function SessionCard() {
     const updatedCard = {
       ranking: rank,
     };
-    fetch(`http://localhost:5002/deck/${deckId}/ranking/${cardIndex}`, {
+    //fetch(`http://localhost:5002/deck/${deckId}/ranking/${cardIndex}`, {
+    fetch(`https://echo-api-gp.web.app/deck/${deckId}/ranking/${cardIndex}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -60,7 +62,7 @@ export default function SessionCard() {
 
   const handleContinue = () => {
     setShowModal(false);
-    navigate("/");
+    navigate("/dashboard");
   };
 
   const handleCardClick = () => {
@@ -69,65 +71,35 @@ export default function SessionCard() {
 
   return (
     <div className='session-page-background'>
-      <h1>Session</h1>
-      <Row className="justify-content-center">
-        <Col xs={8} md={8} lg={6} className='card-column'>
-          <section className="text-center flip-card">
-            {!deck ? (
-              <Card.Title>Loading...</Card.Title>
-            ) : (
-                // <Card.Body className="card-container">
-              <Card
-                className={ flipped ? "flip-card-inner flipped" : "flip-card-inner"} 
-                onClick={handleCardClick}>
-                <div
-                  className="flip-card-front"
-                  style={{ display: flipped ? "none" : "block" }}
-                >
-                  <Card.Title>{deck.title}</Card.Title>
-                  <div>
-                    <Card.Text>
-                      Card {cardIndex + 1} of{" "}
-                      {
-                        Object.keys(deck.formData).filter((key) =>
-                          key.startsWith("front")
-                        ).length
-                      }
-                    </Card.Text>
-                    <Card.Text>
-                      Front: {deck.formData[`front${cardIndex}`]}
-                    </Card.Text>
-                    <div className="btn-container">
-                    {/* <Button onClick={handleNextCard}>Next Card</Button> */}
-                    <Button className="rating-btn" onClick={() => handleRankingChange()}><EmojiLaughingFill color="#8069BB" size={15} /></Button>
-                    <Button className="rating-btn" onClick={() => handleRankingChange()}><EmojiNeutralFill color="#8069BB" size={15} /></Button>
-                    <Button className="rating-btn" onClick={() => handleRankingChange()}><EmojiFrownFill color="#8069BB" size={15} /></Button>
-                  </div>
-                  </div>
-                </div>
-                  {/* <div>
-                    <Button onClick={handleNextCard}>Next Card</Button>
-                    <Button onClick={() => handleRankingChange()}>Easy: 1</Button>
-                    <Button onClick={() => handleRankingChange()}>Medium: 2</Button>
-                    <Button onClick={() => handleRankingChange()}>Hard: 3</Button>
-                  </div> */}
-                <div
-                  className="flip-card-back"
-                  style={{ display: flipped ? "block" : "none" }}
-                >
-                  <Card.Title>{deck.title}</Card.Title>
-                  <div>
-                    <Card.Text>
-                      Card {cardIndex + 1} of{" "}
-                      {
-                        Object.keys(deck.formData).filter((key) =>
-                          key.startsWith("front")
-                        ).length
-                      }
-                    </Card.Text>
-                    <Card.Text>
-                      Back: {deck.formData[`back${cardIndex}`]}
-                    </Card.Text>
+    <h1>Session</h1>
+    <Row className="justify-content-center">
+      <Col xs={8} md={8} lg={6} className='card-column'>
+        <section className="text-center flip-card">
+          {!deck ? (
+            <Card.Title>Loading...</Card.Title>
+          ) : (
+            // <Card.Body className="card-container">
+            <Card
+              className={flipped ? "flip-card-inner flipped" : "flip-card-inner"}
+              onClick={handleCardClick}
+            >
+              <div
+                className="flip-card-front"
+                style={{ display: flipped ? "none" : "block" }}
+              >
+                <Card.Title>{deck.title}</Card.Title>
+                <div>
+                  <Card.Text>
+                    Card {cardIndex + 1} of{" "}
+                    {
+                      Object.keys(deck.formData).filter((key) =>
+                        key.startsWith("front")
+                      ).length
+                    }
+                  </Card.Text>
+                  <Card.Text>
+                    Front: {deck.formData[`front${cardIndex}`]}
+                  </Card.Text>
                   <div className="btn-container">
                     {/* <Button onClick={handleNextCard}>Next Card</Button> */}
                     <Button className="rating-btn" onClick={() => handleRankingChange()}><EmojiLaughingFill color="#8069BB" size={15} /></Button>
@@ -135,21 +107,47 @@ export default function SessionCard() {
                     <Button className="rating-btn" onClick={() => handleRankingChange()}><EmojiFrownFill color="#8069BB" size={15} /></Button>
                   </div>
                 </div>
-              </Card>
+              </div>
+              <div
+                className="flip-card-back"
+                style={{ display: flipped ? "block" : "none" }}
+              >
+                <Card.Title>{deck.title}</Card.Title>
+                <div>
+                  <Card.Text>
+                    Card {cardIndex + 1} of{" "}
+                    {
+                      Object.keys(deck.formData).filter((key) =>
+                        key.startsWith("front")
+                      ).length
+                    }
+                  </Card.Text>
+                  <Card.Text>
+                    Back: {deck.formData[`back${cardIndex}`]}
+                  </Card.Text>
+                  <div className="btn-container">
+                    {/* <Button onClick={handleNextCard}>Next Card</Button> */}
+                    <Button className="rating-btn" onClick={() => handleRankingChange()}><EmojiLaughingFill color="#8069BB" size={15} /></Button>
+                    <Button className="rating-btn" onClick={() => handleRankingChange()}><EmojiNeutralFill color="#8069BB" size={15} /></Button>
+                    <Button className="rating-btn" onClick={() => handleRankingChange()}><EmojiFrownFill color="#8069BB" size={15} /></Button>
+                  </div>
+                </div>
+              </div>
+            </Card>
             //   </Card.Body>
-            )}
-          </section>
-        </Col>
-      </Row>
-      <Modal show={showModal} onHide={() => setShowModal(false)}>
-        <Modal.Header closeButton>
-          <Modal.Title>Nice Work!</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>You're crushing it!</Modal.Body>
-        <Modal.Footer>
-          <Button onClick={handleContinue}>Continue</Button>
-        </Modal.Footer>
-      </Modal>
-    </div>
-  );
+          )}
+        </section>
+      </Col>
+    </Row>
+    <Modal show={showModal} onHide={() => setShowModal(false)}>
+      <Modal.Header closeButton>
+        <Modal.Title>Nice Work!</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>You're crushing it!</Modal.Body>
+      <Modal.Footer>
+        <Button onClick={handleContinue}>Continue</Button>
+      </Modal.Footer>
+    </Modal>
+  </div>
+);
 }

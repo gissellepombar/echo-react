@@ -23,7 +23,7 @@ export default function SignUpContent() {
     setError('')
     try {
       await createUser(email, password)
-      navigate('/')
+      navigate('/dashbaord')
     } catch (e) {
       setError(e.message)
       console.log(e.message)
@@ -40,7 +40,7 @@ export default function SignUpContent() {
 
   useEffect(() => {
     if(user != null) {
-        navigate('/')
+        navigate('/dashboard')
     }
   }, [user])
 

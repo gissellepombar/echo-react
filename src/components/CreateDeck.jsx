@@ -26,8 +26,8 @@ export default function CreateDeck() {
         }
 
         // make a post request to the API with the form data
-        fetch('http://127.0.0.1:5002/deck', {
-        //fetch('https://echo-api-gp.web.app/deck', {
+        // fetch('http://127.0.0.1:5002/deck', {
+        fetch('https://echo-api-gp.web.app/deck', {
         method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -36,7 +36,7 @@ export default function CreateDeck() {
         })
             .then(res => res.json())
             .then(() => {
-                navigate('/');
+                navigate('/dashboard');
             })
             .catch(err => console.log(err.message))
     }
@@ -112,10 +112,6 @@ export default function CreateDeck() {
       </Form>
       </Col>
           </Row>
-      {/* </Card>
-
-          </Col>
-          </Row> */}
     </div> 
   )
 }

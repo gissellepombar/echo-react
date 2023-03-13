@@ -11,14 +11,16 @@ export default function Decks() {
   const [decks, setDecks] = useState([]);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:5002/deck')
+    //fetch('http://127.0.0.1:5002/deck')
+    fetch('https://echo-api-gp.web.app/deck')
       .then(res => res.json())
       .then(data => setDecks(data))
       .catch(err => console.log(err.message))
   }, []);
 
   const handleDelete = (deckId) => {
-    fetch(`http://127.0.0.1:5002/deck/${deckId}`, {
+    //fetch(`http://127.0.0.1:5002/deck/${deckId}`, {
+    fetch(`https://echo-api-gp.web.app/deck/${deckId}`, {
       method: 'DELETE'
     })
       .then(res => res.json())

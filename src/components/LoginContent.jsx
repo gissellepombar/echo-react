@@ -20,7 +20,7 @@ export default function LoginContent({setUser, setIsUser}) {
         setError('')
         try {
           await signIn(email, password)
-          navigate('/')
+          navigate('/dashboard')
         } catch (e) {
           setError(e.message)
           console.log(e.message)
@@ -37,7 +37,7 @@ export default function LoginContent({setUser, setIsUser}) {
 
     useEffect(() => {
         if(user != null) {
-            navigate('/')
+            navigate('/dashboard')
         }
     }, [user])
 
