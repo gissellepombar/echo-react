@@ -47,7 +47,7 @@ export default function CreateDeck() {
 
     return (
         <div className='create-page-background'>
-            <h2>Create a new deck</h2>
+            <h1 className='create-h1'>Create a new deck</h1>
             {/* <Row className="justify-content-center">
               <Col xs={9} md={9} lg={9}>
             <Card> */}
@@ -103,12 +103,14 @@ export default function CreateDeck() {
                         </Card>
                     </div>
                 ))}
-        <Button variant="success" className="mt-3" onClick={handleAddCard}>
+                            <div className="d-flex justify-content-center">
+        <Button variant="success" className="mt-3 button-create" onClick={handleAddCard}>
           Add Card
         </Button>
-        <Button variant="primary" type="submit" className="mt-3" >
+        <Button variant="primary" type="submit" className="mt-3 button-create" >
           Create Deck
         </Button>
+        </div>
       </Form>
       </Col>
           </Row>

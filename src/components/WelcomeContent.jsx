@@ -18,7 +18,7 @@ export default function WelcomeContent() {
                 time.
               </h2>
               <div className="d-flex align-items-center justify-content-center">
-                <Button className='button-welcome' onClick={() => navigate(`/create`)}>Get Started</Button>
+                <Button className='button-welcome' onClick={() => navigate(`/signup`)}>Get Started</Button>
               </div>
             </div>
           </div>

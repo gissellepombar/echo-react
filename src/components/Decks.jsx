@@ -48,11 +48,11 @@ export default function Decks() {
               </Col>
             ))}
             <Col>
-              <Card className="text-center">
+              {/* <Card className="text-center">
                 <Card.Body>
                   <Button onClick={() => navigate(`/create`)}>Add New Deck</Button>
                 </Card.Body>
-              </Card>
+              </Card> */}
             </Col>
           </Row>
         }

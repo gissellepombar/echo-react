@@ -17,7 +17,7 @@ const navigate = useNavigate();
           our app adjust the frequency of card appearances to help you focus on
           the toughest ones. */}
         </h3>
-        <Button onClick={() => navigate(`/create`)}>Create New Deck</Button>
+        <Button className='button-create' onClick={() => navigate(`/create`)}>Create New Deck</Button>
       </div>
     </div>
   );

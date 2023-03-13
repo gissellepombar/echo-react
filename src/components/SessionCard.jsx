@@ -71,7 +71,8 @@ export default function SessionCard() {
 
   return (
     <div className='session-page-background'>
-    <h1>Session</h1>
+    <h1 className="session-h1">Session</h1>
+    {/* <h1 className="session-h1">{deck.title}</h1> */}
     <Row className="justify-content-center">
       <Col xs={8} md={8} lg={6} className='card-column'>
         <section className="text-center flip-card">
@@ -87,9 +88,9 @@ export default function SessionCard() {
                 className="flip-card-front"
                 style={{ display: flipped ? "none" : "block" }}
               >
-                <Card.Title>{deck.title}</Card.Title>
+                {/* <Card.Title>{deck.title}</Card.Title> */}
                 <div>
-                  <Card.Text>
+                  <Card.Text className="session-card-text">
                     Card {cardIndex + 1} of{" "}
                     {
                       Object.keys(deck.formData).filter((key) =>
@@ -97,24 +98,27 @@ export default function SessionCard() {
                       ).length
                     }
                   </Card.Text>
-                  <Card.Text>
-                    Front: {deck.formData[`front${cardIndex}`]}
+                  <Card.Text className="session-card-text">
+                    Term
                   </Card.Text>
-                  <div className="btn-container">
-                    {/* <Button onClick={handleNextCard}>Next Card</Button> */}
-                    <Button className="rating-btn" onClick={() => handleRankingChange()}><EmojiLaughingFill color="#8069BB" size={15} /></Button>
+                  <Card.Title className="session-card-title">
+                    {deck.formData[`front${cardIndex}`]}
+                  </Card.Title>
+                  {/* <div className="btn-container">
+                     <Button onClick={handleNextCard}>Next Card</Button> 
+                     <Button className="rating-btn" onClick={() => handleRankingChange()}><EmojiLaughingFill color="#8069BB" size={15} /></Button>
                     <Button className="rating-btn" onClick={() => handleRankingChange()}><EmojiNeutralFill color="#8069BB" size={15} /></Button>
-                    <Button className="rating-btn" onClick={() => handleRankingChange()}><EmojiFrownFill color="#8069BB" size={15} /></Button>
-                  </div>
+                    <Button className="rating-btn" onClick={() => handleRankingChange()}><EmojiFrownFill color="#8069BB" size={15} /></Button> 
+                  </div> */}
                 </div>
               </div>
               <div
                 className="flip-card-back"
                 style={{ display: flipped ? "block" : "none" }}
               >
-                <Card.Title>{deck.title}</Card.Title>
+                {/* <Card.Title>{deck.title}</Card.Title> */}
                 <div>
-                  <Card.Text>
+                  <Card.Text className="session-card-text">
                     Card {cardIndex + 1} of{" "}
                     {
                       Object.keys(deck.formData).filter((key) =>
@@ -122,21 +126,24 @@ export default function SessionCard() {
                       ).length
                     }
                   </Card.Text>
-                  <Card.Text>
-                    Back: {deck.formData[`back${cardIndex}`]}
+                  <Card.Text className="session-card-text">
+                    Definition
                   </Card.Text>
-                  <div className="btn-container">
-                    {/* <Button onClick={handleNextCard}>Next Card</Button> */}
-                    <Button className="rating-btn" onClick={() => handleRankingChange()}><EmojiLaughingFill color="#8069BB" size={15} /></Button>
-                    <Button className="rating-btn" onClick={() => handleRankingChange()}><EmojiNeutralFill color="#8069BB" size={15} /></Button>
-                    <Button className="rating-btn" onClick={() => handleRankingChange()}><EmojiFrownFill color="#8069BB" size={15} /></Button>
-                  </div>
+                  <Card.Title className="session-card-title">
+                    {deck.formData[`back${cardIndex}`]}
+                  </Card.Title>
                 </div>
               </div>
             </Card>
             //   </Card.Body>
           )}
         </section>
+                  <div className="d-flex justify-content-center btn-container">
+                    {/* <Button onClick={handleNextCard}>Next Card</Button> */}
+                    <Button className="rating-btn" onClick={() => handleRankingChange(1)}><EmojiLaughingFill color="#8069BB" size={30} /></Button>
+                    <Button className="rating-btn" onClick={() => handleRankingChange(2)}><EmojiNeutralFill color="#8069BB" size={30} /></Button>
+                    <Button className="rating-btn" onClick={() => handleRankingChange(3)}><EmojiFrownFill color="#8069BB" size={30} /></Button>
+                  </div>
       </Col>
     </Row>
     <Modal show={showModal} onHide={() => setShowModal(false)}>

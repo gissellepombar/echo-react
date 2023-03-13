@@ -24,7 +24,12 @@
 
   .h3-header {
     max-width: 60%;
+    font-size: 1.17em!important;
   }
+
+  .button-create {
+    --bs-btn-bg: #4354FF!important;
+}
 
 .deck-card {
     color: #4D4363;

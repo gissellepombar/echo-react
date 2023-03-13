@@ -8,7 +8,22 @@
     align-items: center; */
 }
 
+.create-h1 {
+    text-align: center;
+    color: #4D4363;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
 .form-card {
     margin-bottom: 1rem;
     padding: 1rem;
+}
+
+.button-create {
+    --bs-btn-bg: #4354FF!important;
+}
+
+.button-create {
+    --bs-btn-bg: #4354FF!important;
 }

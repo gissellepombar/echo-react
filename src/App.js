@@ -23,7 +23,7 @@ function App() {
                         <Route path='/login' element={<Login />} />
 
                         <Route exact path='/dashboard' element={<ProtectedRoutes><Dashboard /></ProtectedRoutes>} />
-                        <Route path="/session/:deckId" element={<Session />} />
+                        <Route path="/session/:deckId" element={<ProtectedRoutes><Session /></ProtectedRoutes>} />
                         <Route path='/create' element={<ProtectedRoutes><Create /></ProtectedRoutes>} />
                     </Routes>
             </BrowserRouter>
