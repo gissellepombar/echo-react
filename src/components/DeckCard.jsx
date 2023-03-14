@@ -45,8 +45,8 @@ export default function DeckCard({ deck, handleDelete, navigate }) {
                 if (key.startsWith("front")) {
                   return (
                     <div key={index}>
-                      <p>Front: {deck.formData[key]}</p>
-                      <p>Back: {deck.formData[`back${key.slice(5)}`]}</p>
+                      <p>Term: {deck.formData[key]}</p>
+                      <p>Definition: {deck.formData[`back${key.slice(5)}`]}</p>
                     </div>
                   );
                 } else {

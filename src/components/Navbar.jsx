@@ -18,7 +18,21 @@ export default function Navbar(){
   };
 
   return (
-      <Nav className="justify-content-end" activeKey="/home">
+    <Nav className="justify-content-between" activeKey="/home">
+      <Nav className="justify-content-start">
+        <Nav.Item>
+          <Nav.Link href="/dashboard">
+            <img
+              src="/logo192.png"
+              width="35"
+              height="35"
+              className="d-inline-block align-top"
+              alt="Echo logo"
+            />
+          </Nav.Link>
+        </Nav.Item>
+      </Nav>
+      <Nav className="justify-content-end">
         <Nav.Item>
           <Nav.Link href="/dashboard">Home</Nav.Link>
         </Nav.Item>
@@ -32,5 +46,6 @@ export default function Navbar(){
           <Nav.Link onClick={handleSignOut}>{!user ? "Sign In" : "Sign Out"}</Nav.Link>
         </Nav.Item>
       </Nav>
+    </Nav>
   )
 }

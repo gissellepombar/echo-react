@@ -9,7 +9,7 @@
 }
 
 .header-bg {
-    background-color: #D3E2F8;
+    background-color: #5884d5bd;
     /* background-image: url("../assets/images/home.webp"); */
     /* background-size: cover; */
     height: 100%;
@@ -28,7 +28,7 @@
   }
 
   .button-header {
-    --bs-btn-bg: #8B3DFF!important;
+    --bs-btn-bg: #4354FF!important;
     --bs-btn-border-width: 0!important;
 }
 
