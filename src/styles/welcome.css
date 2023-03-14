@@ -57,6 +57,13 @@
     margin: 0 auto;
     margin-bottom: 1rem;
   }
+  .text-container {
+    background-color: rgba(255, 255, 255, 0.508);
+    border-radius: 7px;
+    padding: 2rem;
+  }
+  
+
 .button-welcome {
     --bs-btn-bg: #4354FF!important;
 }

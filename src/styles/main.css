@@ -23,13 +23,28 @@
   }
 
   .h3-header {
-    max-width: 60%;
+    /* max-width: 60%; */
     font-size: 1.17em!important;
   }
 
-  .button-create {
-    --bs-btn-bg: #4354FF!important;
+  .button-header {
+    --bs-btn-bg: #8B3DFF!important;
+    --bs-btn-border-width: 0!important;
 }
+
+@media (min-width: 768px) {
+    /* For screens 768px and larger */
+    .dashboard-content-wrapper {
+      text-align: justify; /* Set to justify alignment */
+    }
+  }
+  
+  @media (max-width: 767px) {
+    /* For screens 767px and smaller */
+    .dashboard-content-wrapper {
+      text-align: center; /* Set to center alignment */
+    }
+  }
 
 .deck-card {
     color: #4D4363;

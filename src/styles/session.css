@@ -69,15 +69,29 @@
 
 .rating-btn {
     --bs-btn-border-width: 3px!important;
-    --bs-btn-border-color: #E0EBFB!important;
+    --bs-btn-border-color: #D3E2F8!important;
     --bs-btn-padding-x: 0.40rem!important;
     --bs-btn-padding-y: 0.10rem!important;
-    --bs-btn-bg: #E2EBFD!important;
+    --bs-btn-bg: #D3E2F8!important;
     border-radius: 13px!important;
     --bs-btn-hover-bg: #CADBF3!important;
     --bs-btn-hover-border-color: #CADBF3!important;
-    background: #E2EBFD;
+    background: #D3E2F8;
     box-shadow:  5px 5px 6px #d9e2f3,
     -5px -5px 6px #ebf4ff;
     margin-right: 0.5rem;
+}
+
+.modal-content {
+  /* background-color: red!important; */
+  background-image: url("../assets/images/background.webp");
+  /* background-image: url("../assets/images/home.webp"); */
+  background-size: cover;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+.button-modal{
+  --bs-btn-bg: #4354FF!important;
 }

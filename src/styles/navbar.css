@@ -2,4 +2,5 @@
     background-color: rgb(240,251,254);
     /* height: 100%; */
     --bs-nav-link-padding-y: 1.1rem!important;
+    --bs-nav-link-color: #4354FF!important;
 }

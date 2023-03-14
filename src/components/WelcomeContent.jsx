@@ -11,7 +11,7 @@ export default function WelcomeContent() {
         <div className="row">
           <div className="col-md-6"></div>
           <div className="col-md-6 d-flex align-items-center justify-content-center">
-            <div>
+            <div className="text-container">
               <h1 className="text-center">RETAIN MORE, FORGET LESS</h1>
               <h2 className="text-center">
                 Learn more effectively and remember info for longer periods of

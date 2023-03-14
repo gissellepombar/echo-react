@@ -140,9 +140,9 @@ export default function SessionCard() {
         </section>
                   <div className="d-flex justify-content-center btn-container">
                     {/* <Button onClick={handleNextCard}>Next Card</Button> */}
-                    <Button className="rating-btn" onClick={() => handleRankingChange(1)}><EmojiLaughingFill color="#8069BB" size={30} /></Button>
-                    <Button className="rating-btn" onClick={() => handleRankingChange(2)}><EmojiNeutralFill color="#8069BB" size={30} /></Button>
-                    <Button className="rating-btn" onClick={() => handleRankingChange(3)}><EmojiFrownFill color="#8069BB" size={30} /></Button>
+                    <Button className="rating-btn" onClick={() => handleRankingChange(1)}><EmojiLaughingFill color="#F3AEC3" size={40} /></Button>
+                    <Button className="rating-btn" onClick={() => handleRankingChange(2)}><EmojiNeutralFill color="#A3D5D9" size={40} /></Button>
+                    <Button className="rating-btn" onClick={() => handleRankingChange(3)}><EmojiFrownFill color="#586491" size={40} /></Button>
                   </div>
       </Col>
     </Row>
@@ -152,7 +152,7 @@ export default function SessionCard() {
       </Modal.Header>
       <Modal.Body>You're crushing it!</Modal.Body>
       <Modal.Footer>
-        <Button onClick={handleContinue}>Continue</Button>
+        <Button className="button-modal" onClick={handleContinue}>Continue</Button>
       </Modal.Footer>
     </Modal>
   </div>
